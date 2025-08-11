@@ -21,7 +21,7 @@ export function isSongInPlaylist(playlist, song) {
 export function isAllEven(numbers) {
   if (numbers.length === 0) return undefined;
   for (const number of numbers) {
-    if (number % 2 === 0) {
+    if (number % 2 !== 0) {
       return false;
     }
   }
@@ -40,15 +40,13 @@ export function isAllEven(numbers) {
  */
 export function haveEnoughFood(backpack, people) {
   if (people === 0) return true;
-  if (backpack.length === 0) return true;
 
   let food = 0;
   for (const thing of backpack) {
     if (thing.category === "food") {
       food += 1;
     }
-    if (food >= people) return true;
   }
-  return false;
+  return food >= people;
   // TODO
 }

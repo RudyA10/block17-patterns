@@ -28,8 +28,11 @@ export function factorial(n) {
   if (n < 0) {
     return undefined;
   }
+  if (n === 0) {
+    return 1;
+  }
   let factor = 1;
-  for (let i = 1; i < n; ++i) {
+  for (let i = 1; i <= n; ++i) {
     factor *= i;
   }
   return factor;
@@ -59,11 +62,10 @@ export function buildNArray(n) {
  * @returns {string} the longest string in `strings`
  */
 export function getLongestString(strings) {
-  if (typeof strings !== "string") return null;
+  if (!Array.isArray(strings)) return null;
   let longString = "";
   for (const string of strings) {
-    if (string.length > longString.length);
-    longString = string;
+    if (string.length > longString.length) longString = string;
   }
   return longString;
   // TODO
